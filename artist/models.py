@@ -8,6 +8,7 @@ class Band(models.Model):
     band_genre = models.CharField(max_length = 50)
     band_origin = models.CharField(max_length = 50)
     band_photo = models.TextField(default = "Artist Image")
+    band_votes = models.IntegerField(default = 1)
     def __str__(self):
         return self.band_name
 
@@ -18,6 +19,7 @@ class Album(models.Model):
     album_year = models.DateField()
     album_band = models.ForeignKey(Band, on_delete=models.CASCADE)
     album_image = models.TextField(default = "Album Image")
+    album_votes = models.IntegerField(default = 1)
     def __str__ (self):
         return self.album_name 
 
