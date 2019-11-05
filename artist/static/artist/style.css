@@ -1,4 +1,17 @@
-.image-logo {
-    height: 90px;
-    width: 100px;
+/*
+.my-4 {
+    background-color: #5a3fa3;
+}
+.container {
+    background-color: #5a3fa3;
+}
+*/
+
+.col-md-8 {
+    padding-top: 20px;
+}
+#image-logo-header {
+    width: 20%;
+    padding: 10px;
+    margin: 10px;
 }
