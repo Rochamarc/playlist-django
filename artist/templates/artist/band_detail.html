@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %} SpotFlame {% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    {% for i in band_detail %}
+    <div class="row">
+        
+        <div class="col-lg-8 offset-md-2 mb-4">
+            <h1 class="my-4">{{ i.band_name }}</h1>
+
+          <div class="card h-30">
+            <a href="{{ i.band_photo }}"><img class="card-img-top" src="{{ i.band_photo }}" alt=""></a>
+            <div class="card-body">
+              <h4 class="card-title">
+                <p>{{ i.band_name }}</p>
+              </h4>
+              <p class="card-text">{{ i.band_origin }}</p>
+            </div>
+          </div>
+
+          <!-- Biography field -->
+          <h2 class="my-4">Biography: </h2>
+          <p class="lead mb-0">{{ i.band_bio }}</p>
+
+          <!-- Album field -->
+          <h2 class="my-4">Albums: </h2>
+        <div class="row">
+            {% for album in album_band_detail %}
+            <div class="col-md-3 col-sm-6 mb-4">
+                <a href="#">
+                    <img class="img-fluid" src="{{ album.album_image }}" alt="">
+                    </a>
+                    {{ album.album_name }}
+                </div>
+            </div>
+            </div>
+            {% endfor %}
+    
+        
+        </div>
+        <!-- end row -->
+
+    <!-- end for i in range-->
+    {% endfor %}
+
+    
+</div>
+
+{% endblock %}

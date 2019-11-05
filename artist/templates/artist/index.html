@@ -14,7 +14,7 @@
               <div class="col-md-4">
                 <h3 class="my-3">What is SpotFlame?</h3>
                 <p>Rate your favorite bands, albums and songs of your favorite artists and songs!</p>
-                <h3 class="my-3">Top Artists</h3>
+                <h3 class="my-3">Top Songs</h3>
                 <ul>
                   {% for i in song_list %}  
                   <li>{{ i.song_name }}</li>
@@ -26,10 +26,19 @@
             <!-- /.row -->
           
             <!-- Related Projects Row -->
-            <h3 class="my-4">Related Projects</h3>
-          
+            <h3 class="my-4">Top Bands</h3>
+            
+            
             <div class="row">
-          
+              {% for i in band_list %}
+              <div class="col-md-3 col-sm-6 mb-4">
+                <a href="#">
+                      <img class="img-fluid" src="{{ i.band_photo }}" alt="">
+                    </a>
+                    {{ i.band_name }}
+              </div>
+              {% endfor %}
+              <!--
               <div class="col-md-3 col-sm-6 mb-4">
                 <a href="#">
                       <img class="img-fluid" src="http://placehold.it/500x300" alt="">
@@ -47,13 +56,7 @@
                       <img class="img-fluid" src="http://placehold.it/500x300" alt="">
                     </a>
               </div>
-          
-              <div class="col-md-3 col-sm-6 mb-4">
-                <a href="#">
-                      <img class="img-fluid" src="http://placehold.it/500x300" alt="">
-                    </a>
-              </div>
-          
+            -->
             </div>
             <!-- /.row -->
           
