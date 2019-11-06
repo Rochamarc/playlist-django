@@ -28,18 +28,19 @@
 
           <!-- Album field -->
           <h2 class="my-4">Albums: </h2>
-        <div class="row">
-            {% for album in album_band_detail %}
-            <div class="col-md-3 col-sm-6 mb-4">
-                <a href="#">
-                    <img class="img-fluid" src="{{ album.album_image }}" alt="">
-                    </a>
-                    {{ album.album_name }}
-                </div>
-            </div>
-            </div>
-            {% endfor %}
-    
+          {% for album in album_band_detail %}
+          <div class="row">
+              <div class="col-md-3 col-sm-6 mb-4">
+                  <a href="#">
+                      <img class="img-fluid" src="{{ album.album_image }}" alt="">
+                      </a>
+                      {{ album.album_name }}
+                  </div>
+              </div>
+              {% endfor %}    
+          </div>
+            
+            
         
         </div>
         <!-- end row -->
