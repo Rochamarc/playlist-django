@@ -1,7 +1,5 @@
 from django.db import models
 
-from django.utils import timezone
-
 class Band(models.Model):
     band_name = models.CharField(max_length = 100)
     band_bio = models.TextField(default = "Artist Biography")
