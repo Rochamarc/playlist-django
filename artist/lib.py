@@ -28,3 +28,9 @@ def return_album(model):
     from .models import Album
 
     return Album.objects.filter(album_band = model.band_name)
+
+def take_top_bands(object):
+    return object.band_votes
+
+def take_top_albums(object):
+    return object.album_votes
