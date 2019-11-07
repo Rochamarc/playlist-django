@@ -3,7 +3,7 @@ from django.shortcuts import render
 # importing my models
 from .models import Band, Album, Song
 # import helpful libs
-from .lib import list_check, artist_check, return_album
+from .lib import list_check, artist_check, return_album, take_top_bands, take_top_albums
 
 def index(request):
     song_list = Song.objects.all()
@@ -36,3 +36,18 @@ def band_detail(request, pk):
     }
     return render(request, 'artist/band_detail.html', context)
 
+# Page of the most rated album and bands
+def top_index(request):
+    top_bands = list(Band.objects.all())
+    top_albums = list(Album.objects.all())
+    
+
+    top_bands.sort(key=take_top_bands, reverse=True) # sort by band votes
+    top_albums.sort(key=take_top_albums, reverse=True) # sort by album votes
+
+    context = {
+        'top_bands': top_bands,
+        'top_albums': top_albums
+    }
+
+    return render(request, 'artist/top.html', context)
