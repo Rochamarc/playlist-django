@@ -3,7 +3,7 @@ from django.shortcuts import render
 # importing my models
 from .models import Band, Album, Song
 # import helpful libs
-from .lib import list_check, artist_check, return_album, take_top_bands, take_top_albums
+from .lib import *
 
 def index(request):
     song_list = Song.objects.all()
@@ -36,14 +36,32 @@ def band_detail(request, pk):
     }
     return render(request, 'artist/band_detail.html', context)
 
+def album_detail(request, pk):
+    album_detail = Album.objects.filter(id=pk)
+    song_detail = Song.objects.filter(song_album = album_detail[0])
+
+
+    context = {
+        'pk': pk,
+        'album_detail': album_detail,
+        'song_detail': song_detail
+    }
+    return render(request, 'artist/album_detail.html', context)
+
 # Page of the most rated album and bands
 def top_index(request):
-    top_bands = list(Band.objects.all())
-    top_albums = list(Album.objects.all())
+    top_bands_list = list(Band.objects.all())
+    top_albums_list = list(Album.objects.all())
     
 
-    top_bands.sort(key=take_top_bands, reverse=True) # sort by band votes
-    top_albums.sort(key=take_top_albums, reverse=True) # sort by album votes
+    top_bands_list.sort(key=take_top_bands, reverse=True) # sort by band votes
+    top_albums_list.sort(key=take_top_albums, reverse=True) # sort by album votes
+
+    top_bands = []
+    top_albums = []
+    for i in range(4):
+        top_bands.append(top_bands_list[i]) # 4 most rated bands
+        top_albums.append(top_albums_list[i]) # 4 most rates albums
 
     context = {
         'top_bands': top_bands,
