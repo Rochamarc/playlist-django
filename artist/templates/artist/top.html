@@ -1,4 +1,38 @@
-{% for i in top_bands %}
-    {{ i.band_name }}
-    {{ i.band_votes }}
-{% endfor %}
+{% extends "base.html" %}
+
+{% block title %} SpotFlame {% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Top bands -->
+    <h3 class="my-4"><a href="#">Top Bands</a></h3> <!-- href top bands -->
+    
+    <div class="row">
+        {% for i in top_bands %}
+        <div class="col-md-3 col-sm-6 mb-4">
+          <a href="{% url 'band-detail' i.id %}">
+                <img class="img-fluid" src="{{ i.band_image }}" alt="">
+              </a>
+              {{ i.band_name }}
+        </div>
+        {% endfor %}
+     </div>
+    <!-- /.row -->
+
+    <!-- Top Albums -->
+    <h3 class="my-4"><a href="#">Top Albums</a></h3> <!-- href top albums -->
+
+    <div class="row">
+        {% for i in top_albums %}
+        <div class="col-md-3 col-sm-6 mb-4">
+          <a href="{% url 'album-detail' i.id %}"> <!-- href album detail -->
+                <img class="img-fluid" src="{{ i.album_image }}" alt="">
+              </a>
+              {{ i.album_name }}
+        </div>
+        {% endfor %}
+     </div>
+    <!-- /.row -->
+
+</div>
+{% endblock %}
