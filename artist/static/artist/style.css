@@ -16,9 +16,9 @@
     margin: 10px;
 }
 
-#logo-url {
+.logo-url {
     text-decoration: none;
 }
-#logo-url :hover{
+.logo-url :hover{
     text-decoration: none;
 }
