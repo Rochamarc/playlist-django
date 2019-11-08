@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %} SpotFlame {% endblock %}
+
+{% block content %}
+<div class="container">
+    {% for i in album_detail %}
+    <div class="row">
+        
+            <div class="col-lg-5 offset-md-3 mb-4">
+                <h1 class="my-4">{{ i.album_band }}</h1>
+    
+              <div class="card h-30">
+                <a href="{{ i.album_image }}"><img class="card-img-top" src="{{ i.album_image }}" alt=""></a>
+                <div class="card-body">
+                  <h4 class="card-title">
+                    <p>{{ i.album_name }}</p>
+                  </h4>
+                  <p class="card-text">{{ i.album_length }}</p>
+                </div>
+              </div>
+            </div>
+            <ul class="list-group col-md-8 offset-md-2">
+                {% for i in song_detail %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        {{ i.song_number }} - {{ i.song_name }}
+                        <span class="badge badge-primary badge-pill">{{ i.song_length }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+    </div>
+    {% endfor %}
+        
+</div>
+{% endblock %}

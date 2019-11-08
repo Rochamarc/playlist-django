@@ -13,7 +13,7 @@
             <h1 class="my-4">{{ i.band_name }}</h1>
 
           <div class="card h-30">
-            <a href="{{ i.band_photo }}"><img class="card-img-top" src="{{ i.band_photo }}" alt=""></a>
+            <a href="{{ i.band_image }}"><img class="card-img-top" src="{{ i.band_image }}" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
                 <p>{{ i.band_name }}</p>
@@ -30,12 +30,12 @@
           <h2 class="my-4">Albums: </h2>
           
           <div class="row">
-              {% for album in album_band_detail %}
+              {% for i in album_band_detail %}
               <div class="col-md-3 col-sm-6 mb-4">
-                <a href="#">
-                  <img class="img-fluid" src="{{ album.album_image }}" alt="">
+                <a href="{% url 'album-detail' i.id %}">
+                  <img class="img-fluid" src="{{ i.album_image }}" alt="">
                   </a>
-                  {{ album.album_name }}
+                  {{ i.album_name }}
               </div>
               {% endfor %}
           </div>
