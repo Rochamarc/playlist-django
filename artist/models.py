@@ -5,7 +5,7 @@ class Band(models.Model):
     band_bio = models.TextField(default = "Artist Biography")
     band_genre = models.CharField(max_length = 50)
     band_origin = models.CharField(max_length = 50)
-    band_photo = models.TextField(default = "Artist Image")
+    band_image = models.TextField(default = "Artist Image")
     band_votes = models.IntegerField(default = 1)
     def __str__(self):
         return self.band_name
