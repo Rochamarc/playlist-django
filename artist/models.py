@@ -27,6 +27,6 @@ class Song(models.Model):
     song_length = models.CharField(max_length = 7)
     song_artist = models.ForeignKey(Band, on_delete=models.CASCADE)
     song_album = models.ForeignKey(Album, on_delete=models.CASCADE)
-    
+    song_votes = models.IntegerField(default = 1)
     def __str__(self):
         return self.song_name
