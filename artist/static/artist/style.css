@@ -7,9 +7,11 @@
 }
 */
 
-.col-md-8 {
-    padding-top: 20px;
+.logo-size{
+    width: 150px;
+    height: 100px;
 }
+
 #image-logo-header {
     width: 20%;
     padding: 10px;
@@ -21,4 +23,13 @@
 }
 .logo-url :hover{
     text-decoration: none;
+}
+
+.content-header {
+    margin-top: 100px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
 }
