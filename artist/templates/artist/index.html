@@ -16,8 +16,8 @@
                 <p>Rate your favorite bands, albums and songs of your favorite artists and songs!</p>
                 <h3 class="my-3">Top Songs</h3>
                 <ul>
-                  {% for i in song_list %}  
-                  <li>{{ i.song_name }}</li>
+                  {% for song in songs %}  
+                  <li>{{ song.name }}</li>
                   {% endfor %}
                 </ul>
               </div>
@@ -30,12 +30,12 @@
             
             
             <div class="row">
-              {% for i in band_list %}
+              {% for band in bands %}
               <div class="col-md-3 col-sm-6 mb-4">
-                <a class="text-decoration-none" href="{% url 'band-detail' i.id %}">
-                      <img class="img-fluid" src="{{ i.band_image }}" alt="">
+                <a class="text-decoration-none" href="{% url 'band-detail' band.id %}">
+                      <img class="img-fluid" src="{{ band.image }}" alt="">
                     </a>
-                    {{ i.band_name }}
+                    {{ band.name }}
               </div>
               {% endfor %}
             </div>

@@ -11,9 +11,9 @@
         {% for i in top_bands %}
         <div class="col-md-3 col-sm-6 mb-4">
           <a href="{% url 'band-detail' i.id %}">
-                <img class="img-fluid" src="{{ i.band_image }}" alt="">
+                <img class="img-fluid" src="{{ i.image }}" alt="">
               </a>
-              {{ i.band_name }}
+              {{ i.name }}
         </div>
         {% endfor %}
      </div>
@@ -26,9 +26,9 @@
         {% for i in top_albums %}
         <div class="col-md-3 col-sm-6 mb-4">
           <a href="{% url 'album-detail' i.id %}"> <!-- href album detail -->
-                <img class="img-fluid" src="{{ i.album_image }}" alt="">
+                <img class="img-fluid" src="{{ i.image }}" alt="">
               </a>
-              {{ i.album_name }}
+              {{ i.name }}
         </div>
         {% endfor %}
      </div>

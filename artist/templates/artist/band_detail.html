@@ -6,36 +6,36 @@
 
 <div class="container">
 
-    {% for i in band_detail %}
+    {% for band in band_detail %}
     <div class="row">
         
         <div class="col-lg-8 offset-md-2 mb-4">
-            <h1 class="my-4">{{ i.band_name }}</h1>
+            <h1 class="my-4">{{ band.name }}</h1>
 
           <div class="card h-30">
-            <a href="{{ i.band_image }}"><img class="card-img-top" src="{{ i.band_image }}" alt=""></a>
+            <a href="{{ band.image }}"><img class="card-img-top" src="{{ band.image }}" alt=""></a>
             <div class="card-body">
               <h4 class="card-title">
-                <p>{{ i.band_name }}</p>
+                <p>{{ band.name }}</p>
               </h4>
-              <p class="card-text">{{ i.band_origin }}</p>
+              <p class="card-text">{{ band.origin }}</p>
             </div>
           </div>
 
           <!-- Biography field -->
           <h2 class="my-4">Biography: </h2>
-          <p class="lead mb-0">{{ i.band_bio | linebreaksbr }}</p>
+          <p class="lead mb-0">{{ band.bio | linebreaksbr }}</p>
 
           <!-- Album field -->
           <h2 class="my-4">Albums: </h2>
           
           <div class="row">
-              {% for i in album_band_detail %}
+              {% for album in albums %}
               <div class="col-md-3 col-sm-6 mb-4">
-                <a href="{% url 'album-detail' i.id %}">
-                  <img class="img-fluid" src="{{ i.album_image }}" alt="">
+                <a href="{% url 'album-detail' album.id %}">
+                  <img class="img-fluid" src="{{ album.image }}" alt="">
                   </a>
-                  {{ i.album_name }}
+                  {{ album.name }}
               </div>
               {% endfor %}
           </div>
