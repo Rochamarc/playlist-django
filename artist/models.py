@@ -2,51 +2,51 @@ from django.db import models
 
 class Band(models.Model):
     
-    band_name = models.CharField(max_length = 100)
-    band_bio = models.TextField(default = "Artist Biography")
-    band_genre = models.CharField(max_length = 50)
-    band_origin = models.CharField(max_length = 50)
-    band_image = models.TextField(default = "Artist Image")
-    band_votes = models.IntegerField(default = 1)
+    name = models.CharField(max_length = 100)
+    bio = models.TextField(default = "Artist Biography")
+    genre = models.CharField(max_length = 50)
+    origin = models.CharField(max_length = 50)
+    image = models.TextField(default = "Artist Image")
+    votes = models.IntegerField(default = 1)
     
     def __str__(self):
-        return self.band_name
+        return self.name
 
     class Meta:
         verbose_name = 'Banda'
         verbose_name_plural = 'Bandas'
-        ordering = ['band_name']
+        ordering = ['name']
 
 class Album(models.Model):
     
-    album_name = models.CharField(max_length = 100)
-    album_length = models.CharField(max_length = 7)
-    album_year = models.DateField()
-    album_band = models.ForeignKey(Band, on_delete=models.CASCADE)
-    album_image = models.TextField(default = "Album Image")
-    album_votes = models.IntegerField(default = 1)
+    name = models.CharField(max_length = 100)
+    length = models.CharField(max_length = 7)
+    year = models.DateField()
+    band = models.ForeignKey(Band, on_delete=models.CASCADE)
+    image = models.TextField(default = "Album Image")
+    votes = models.IntegerField(default = 1)
     
     def __str__ (self):
-        return self.album_name 
+        return self.name 
 
     class Meta:
         verbose_name = 'Album'
         verbose_name_plural = 'Albums'
-        ordering = ['album_name']
+        ordering = ['name']
 
 class Song(models.Model):
     
-    song_name = models.CharField(max_length = 50)
-    song_number = models.IntegerField()
-    song_length = models.CharField(max_length = 7)
-    song_artist = models.ForeignKey(Band, on_delete=models.CASCADE)
-    song_album = models.ForeignKey(Album, on_delete=models.CASCADE)
-    song_votes = models.IntegerField(default = 1)
+    name = models.CharField(max_length = 50)
+    number = models.IntegerField()
+    length = models.CharField(max_length = 7)
+    artist = models.ForeignKey(Band, on_delete=models.CASCADE)
+    album = models.ForeignKey(Album, on_delete=models.CASCADE)
+    votes = models.IntegerField(default = 1)
     
     def __str__(self):
-        return self.song_name
+        return self.name
 
     class Meta:
         verbose_name = 'Música'
         verbose_name_plural = 'Músicas'
-        ordering = ['song_name']
+        ordering = ['name']
