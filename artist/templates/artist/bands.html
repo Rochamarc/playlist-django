@@ -15,15 +15,15 @@
     <!-- Bands -->
 
     <div class="row">
-      {% for i in band_list %}
+      {% for band in bands %}
       <div class="col-lg-4 col-sm-6 mb-4">
         <div class="card h-100">
-          <a href="{% url 'band-detail' i.id %}"><img class="card-img-top" src="{{ i.band_image }}" alt=""></a>
+          <a href="{% url 'band-detail' band.id %}"><img class="card-img-top" src="{{ band.image }}" alt=""></a>
           <div class="card-body">
             <h4 class="card-title">
-              <a href="#">{{ i.band_name }}</a>
+              <a href="#">{{ band.name }}</a>
             </h4>
-            <p class="card-text">{{ i.band_origin }}</p>
+            <p class="card-text">{{ band.origin }}</p>
           </div>
         </div>
       </div>

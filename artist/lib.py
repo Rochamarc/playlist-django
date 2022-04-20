@@ -19,7 +19,7 @@ def artist_check(enter_list):
     out_list = []
 
     for i in enter_list:
-        if i.band_votes >= 10:
+        if i.votes >= 10:
             out_list.append(i)
     
     return out_list
@@ -27,10 +27,10 @@ def artist_check(enter_list):
 def return_album(model):
     from .models import Album
 
-    return Album.objects.filter(album_band = model.band_name)
+    return Album.objects.filter(band = model.name)
 
 def take_top_bands(object):
-    return object.band_votes
+    return object.votes
 
 def take_top_albums(object):
-    return object.album_votes
+    return object.votes
