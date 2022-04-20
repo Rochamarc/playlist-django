@@ -49,4 +49,4 @@ class Song(models.Model):
     class Meta:
         verbose_name = 'Música'
         verbose_name_plural = 'Músicas'
-        ordering = ['name']
+        ordering = ['number']
