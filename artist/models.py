@@ -12,6 +12,10 @@ class Band(models.Model):
     def __str__(self):
         return self.band_name
 
+    class Meta:
+        verbose_name = 'Banda'
+        verbose_name_plural = 'Bandas'
+        ordering = ['band_name']
 
 class Album(models.Model):
     
@@ -25,6 +29,11 @@ class Album(models.Model):
     def __str__ (self):
         return self.album_name 
 
+    class Meta:
+        verbose_name = 'Album'
+        verbose_name_plural = 'Albums'
+        ordering = ['album_name']
+
 class Song(models.Model):
     
     song_name = models.CharField(max_length = 50)
@@ -36,3 +45,8 @@ class Song(models.Model):
     
     def __str__(self):
         return self.song_name
+
+    class Meta:
+        verbose_name = 'Música'
+        verbose_name_plural = 'Músicas'
+        ordering = ['song_name']
