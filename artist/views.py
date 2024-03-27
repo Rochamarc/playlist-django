@@ -1,8 +1,7 @@
 from django.shortcuts import render
 
-# importing my models
 from .models import Band, Album, Song
-# import helpful libs
+
 from .lib import artist_check, list_check, take_top_bands, take_top_albums
 
 def index(request):
