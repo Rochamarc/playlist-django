@@ -1,0 +1,30 @@
+services:
+  web:
+    container_name: spotflame-web
+    build: .
+    ports:
+      - 8000:8000
+    command: sh -c "python3 manage.py migrate --noinput && python3 manage.py collectstatic --noinput && python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/spotflame
+    depends_on:
+      - db
+    restart: "always"
+  db:
+    image: mysql:8
+    container_name: spotflame-db
+    environment:
+      MYSQL_ROOT_PASSWORD: RootPassword
+      MYSQL_USER: spot-user
+      MYSQL_HOST: localhost
+      MYSQL_PASSWORD: spot-pass
+      MYSQL_DATABASE: spotflame-db-django
+    ports:
+      - "3333:3306"
+    volumes:
+      - data:/var/lib/mysql
+    restart: "always"
+    
+
+volumes:
+  data:
