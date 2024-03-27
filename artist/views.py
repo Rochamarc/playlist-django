@@ -59,9 +59,13 @@ def top_index(request):
 
     top_bands = []
     top_albums = []
-    for i in range(4):
-        top_bands.append(top_bands_list[i]) # 4 most rated bands
-        top_albums.append(top_albums_list[i]) # 4 most rates albums
+
+    try:
+        for i in range(4):
+            top_bands.append(top_bands_list[i]) # 4 most rated bands
+            top_albums.append(top_albums_list[i]) # 4 most rates albums
+    except:
+        pass
 
     context = {
         'top_bands': top_bands,
