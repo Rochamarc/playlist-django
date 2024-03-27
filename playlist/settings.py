@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # adicionando meus models na aplicacao
     'artist.apps.ArtistConfig', 
 ]
 
@@ -57,7 +56,6 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            # adicionando meus templates na aplicacao
             'artist/templates/artist',
         ],
         'APP_DIRS': True,
