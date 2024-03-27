@@ -79,10 +79,10 @@ WSGI_APPLICATION = 'playlist.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'spotflame-db',
+        'NAME': 'spotflame-db-django',
         'USER': 'spot-user',
         'PASSWORD': 'spot-pass',
-        'HOST': 'localhost',
+        'HOST': 'db',
         'PORT': '3306'
     }
 }
@@ -124,3 +124,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/static/'
