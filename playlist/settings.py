@@ -37,7 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # adicionando meus models na aplicacao
     'artist.apps.ArtistConfig', 
 ]
 
@@ -57,7 +56,6 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            # adicionando meus templates na aplicacao
             'artist/templates/artist',
         ],
         'APP_DIRS': True,
@@ -80,11 +78,14 @@ WSGI_APPLICATION = 'playlist.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'spotflame-db',
+        'USER': 'spot-user',
+        'PASSWORD': 'spot-pass',
+        'HOST': 'localhost',
+        'PORT': '3306'
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
