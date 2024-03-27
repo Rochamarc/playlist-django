@@ -42,13 +42,10 @@ def most_rated_artists(artist_set: list, rate_value: int=10) -> list:
     return [ artist.votes >= rate_value for artist in artist_set ]
 
 def return_album(model):
-    """Filter and album by a model Band
-    """
+    """Filter and album by a model Band"""
 
     return Album.objects.filter(band = model.name)
 
-def take_top_bands(object):
-    return object.votes
-
-def take_top_albums(object):
-    return object.votes
+def take_top(object):
+    """Return an object values"""
+    return object.values
