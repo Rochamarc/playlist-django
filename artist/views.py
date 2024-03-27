@@ -2,18 +2,18 @@ from django.shortcuts import render
 
 from .models import Band, Album, Song
 
-from .lib import artist_check, list_check, take_top_bands, take_top_albums
+from .lib import most_rated_artists, list_check, take_top_bands, take_top_albums
 
 def index(request):
     song_list = Song.objects.all()
     band_list = Band.objects.all()
 
-    short_song_list = list_check(song_list,5) # return a list with 5 random songs
+    short_song_list = list_check(song_list, 5) # return a list with 5 random songs
 
-    artist_rate = artist_check(band_list)
-    band_list = list_check(artist_rate,4) # return a list with 4 random rated bands
+    rated_artists = most_rated_artists(band_list)
+    band_list = list_check(rated_artists, 4) # return a list with 4 random rated bands
 
-    context = { 'songs': short_song_list, 'bands': band_list }
+    context = {'songs': short_song_list, 'bands': band_list}
     return render(request,'artist/index.html', context) # busca pelo template na pasta template
 
 # Artist index

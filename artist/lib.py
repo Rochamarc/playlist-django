@@ -24,11 +24,22 @@ def list_check(query_set: list, length: int) -> list:
     except:
         return query_set
     
-def artist_check(query_set: list) -> list:
-    """Check if the artist has more than 10 votes
+def most_rated_artists(artist_set: list, rate_value: int=10) -> list:
+    """Filter artists by rate
+
+    Parameters
+    ----------
+    artist_set : queryset
+        Band queryset
+    rate_value: int
+        A rate value for the Band votes
+    
+    Returns
+    -------
+        A list of Bands filtered by number of votes 
     """
     
-    return [ i.votes >= 10 for i in query_set ]
+    return [ artist.votes >= rate_value for artist in artist_set ]
 
 def return_album(model):
     """Filter and album by a model Band
