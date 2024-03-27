@@ -1,3 +1,8 @@
 /artist/__pycache__/
 /artist/migrations/__pycache__/
 /playlist/__pycache__/
+
+
+# static files from me
+user.txt
+*.sql
